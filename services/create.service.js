@@ -11,4 +11,4 @@ const broker = new ServiceBroker({
 
 // Define a service
 broker.loadService("./services/posts/create.service");
-broker.start();
+broker.start()
