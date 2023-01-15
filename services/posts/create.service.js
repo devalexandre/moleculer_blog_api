@@ -1,10 +1,14 @@
 const { STRING , INTEGER, TEXT} = require("sequelize");
-const DbService = require("../../mixins/db.mixin");
+const dbConfig = require("../../mixins/dm.mixins");
+const DbService = require("moleculer-db");
+const SqlAdpter = require("@indevweb/moleculer-db-adapter-sequelize");
+
 
 module.exports = {
 	name: "posts",
 	hotReload: true,
-	mixins: [DbService("posts")],
+	mixins: [DbService],
+    adapter: new SqlAdpter(dbConfig),
 	model: {
 		name: "posts",
 		define: {
